@@ -4,10 +4,10 @@ import { motion, AnimatePresence } from 'framer-motion';
 Chart.register(...registerables);
 
 // IMPORTANT: Add your EmailJS keys here
-const EMAILJS_PUBLIC_KEY = '9K1HD5IEzGJW8WxRx';
+const EMAILJS_PUBLIC_KEY = '9K1HD5IEzGJW8WxRx'; // This is your Public Key
 const EMAILJS_SERVICE_ID = 'service_5ehurrn';
 const EMAILJS_CONTACT_TEMPLATE_ID = 'template_phugmw9';
-const EMAILJS_RECRUITER_TEMPLATE_ID = 'service_5ehurrn';
+const EMAILJS_RECRUITER_TEMPLATE_ID = 'template_phugmw9'; // Please create a separate template for this and update the ID
 
 // --- Icon Components ---
 
@@ -40,6 +40,7 @@ export default function App() {
 
     useEffect(() => {
         const script = document.createElement('script');
+        script.type = 'text/javascript';
         script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
         script.async = true;
         script.onload = () => {
@@ -519,7 +520,7 @@ function Contact({ emailJsLoaded }) {
     const sendEmail = (e) => {
         e.preventDefault();
         
-        if (!emailJsLoaded) {
+        if (!emailJsLoaded || !window.emailjs) {
             setStatus({ text: 'Email service is not ready. Please wait a moment.', type: 'error' });
             return;
         }
@@ -682,7 +683,7 @@ function RecruiterModal({ emailJsLoaded }) {
     const handleSubmit = (e) => {
         e.preventDefault(); 
         
-        if (!emailJsLoaded) {
+        if (!emailJsLoaded || !window.emailjs) {
             setStatus({ text: 'Email service is not ready. Please try again later.', type: 'error' });
             return;
         }
