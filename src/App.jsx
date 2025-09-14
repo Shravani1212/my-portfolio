@@ -3,7 +3,12 @@ import { Chart, registerables } from 'chart.js';
 import { motion, AnimatePresence } from 'framer-motion';
 Chart.register(...registerables);
 
-// IMPORTANT: Add your EmailJS keys here
+// --- ⚠️ ACTION REQUIRED: Add your API keys here ---
+// 1. Get your Gemini API Key from Google AI Studio: https://aistudio.google.com/app/apikey
+const GEMINI_API_KEY = 'AIzaSyBfxJphPnrXey9kCbcFKGK_NTavjib7krM';
+
+// 2. Get your EmailJS keys from your account: https://dashboard.emailjs.com/admin
+
 const EMAILJS_PUBLIC_KEY = '9K1HD5IEzGJW8WxRx'; // This is your Public Key
 const EMAILJS_SERVICE_ID = 'service_5ehurrn';
 const EMAILJS_CONTACT_TEMPLATE_ID = 'template_phugmw9';
@@ -36,24 +41,6 @@ const Icon = ({ name, className }) => {
 // --- Main App Component ---
 
 export default function App() {
-    const [emailJsLoaded, setEmailJsLoaded] = useState(false);
-
-    useEffect(() => {
-        const script = document.createElement('script');
-        script.type = 'text/javascript';
-        script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
-        script.async = true;
-        script.onload = () => {
-            window.emailjs.init(EMAILJS_PUBLIC_KEY);
-            setEmailJsLoaded(true);
-        };
-        document.body.appendChild(script);
-
-        return () => {
-            document.body.removeChild(script);
-        }
-    }, []);
-
     return (
         <div className="bg-slate-900 text-slate-300">
             <StyleInjector />
@@ -67,11 +54,11 @@ export default function App() {
                 <Projects />
                 <GitHubActivity />
                 <Certifications />
-                <Contact emailJsLoaded={emailJsLoaded} />
+                <Contact />
             </main>
             <Footer />
             <Chatbot />
-            <RecruiterModal emailJsLoaded={emailJsLoaded} />
+            <RecruiterModal />
         </div>
     );
 }
@@ -249,6 +236,12 @@ function AI_Insights() {
         setActiveTopic(topic);
         setInsight('');
         
+        if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_GOES_HERE') {
+            setInsight("Error: Please add your Gemini API Key to the App.jsx file.");
+            setIsLoading(false);
+            return;
+        }
+
         let userPrompt = '';
         if (topic === 'skills') {
             userPrompt = "Summarize Kasthuri Shravani's key technical skills into 3 bullet points, highlighting her full-stack capabilities.";
@@ -257,8 +250,8 @@ function AI_Insights() {
         }
 
         const systemPrompt = `You are an AI assistant for a portfolio website. Your task is to generate a concise summary based on the provided resume context and a user prompt. Be professional and focus only on the information given. Here is the resume context: ${RESUME_CONTEXT}`;
-        const apiKey = "";
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+        
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${GEMINI_API_KEY}`;
         const payload = { 
             contents: [{ parts: [{ text: userPrompt }] }], 
             systemInstruction: { parts: [{ text: systemPrompt }] },
@@ -520,7 +513,7 @@ function Contact({ emailJsLoaded }) {
     const sendEmail = (e) => {
         e.preventDefault();
         
-        if (!emailJsLoaded || !window.emailjs) {
+        if (!emailJsLoaded || typeof window.emailjs === 'undefined') {
             setStatus({ text: 'Email service is not ready. Please wait a moment.', type: 'error' });
             return;
         }
@@ -595,9 +588,12 @@ function Chatbot() {
     }, [messages, isTyping]);
     
     const getAIResponse = async (userMessage) => {
+        if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_GOES_HERE') {
+            return "Error: The Gemini API Key has not been set up by the developer.";
+        }
         const systemPrompt = `You are "Ask Shravani AI", a friendly and professional chatbot for Kasthuri Shravani's portfolio website. Your purpose is to answer questions from potential recruiters based ONLY on the provided resume context. Be concise and direct. If a question is outside the scope of the resume, politely decline and state that you can only answer questions about Shravani's professional background. Do not invent information. If the answer isn't in the context, say "That information is not specified in the resume, but you can reach out to Shravani directly for more details." Answer as if you are an assistant representing her. Use "Shravani has..." or "Her experience includes..." Here is the resume context: ${RESUME_CONTEXT}`;
-        const apiKey = "";
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+        
+        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${GEMINI_API_KEY}`;
         const payload = { contents: [{ parts: [{ text: userMessage }] }], systemInstruction: { parts: [{ text: systemPrompt }] }, };
         try {
             const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
@@ -636,7 +632,7 @@ function Chatbot() {
                 <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 20 }} className="absolute bottom-20 right-0 w-80 sm:w-96 h-[500px] bg-slate-800/80 backdrop-blur-lg rounded-xl shadow-2xl flex flex-col border border-slate-700">
                     <div className="p-4 bg-slate-900/50 rounded-t-xl border-b border-slate-700">
                         <h3 className="font-bold text-slate-200">Ask Shravani AI</h3>
-                        <p className="text-xs text-slate-400">Your AI-powered career assistant.</p>
+                        <p className="text-xs text-slate-400">Nice to chat with you</p>
                     </div>
                     <div ref={chatMessagesRef} className="flex-1 p-4 overflow-y-auto space-y-4">
                         {messages.map((msg, index) => (
@@ -683,7 +679,7 @@ function RecruiterModal({ emailJsLoaded }) {
     const handleSubmit = (e) => {
         e.preventDefault(); 
         
-        if (!emailJsLoaded || !window.emailjs) {
+        if (!emailJsLoaded || typeof window.emailjs === 'undefined') {
             setStatus({ text: 'Email service is not ready. Please try again later.', type: 'error' });
             return;
         }
