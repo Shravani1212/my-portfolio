@@ -3,16 +3,12 @@ import { Chart, registerables } from 'chart.js';
 import { motion, AnimatePresence } from 'framer-motion';
 Chart.register(...registerables);
 
-// --- ⚠️ ACTION REQUIRED: Add your API keys here ---
-// 1. Get your Gemini API Key from Google AI Studio: https://aistudio.google.com/app/apikey
-const GEMINI_API_KEY = 'AIzaSyBfxJphPnrXey9kCbcFKGK_NTavjib7krM';
-
-// 2. Get your EmailJS keys from your account: https://dashboard.emailjs.com/admin
-
+// IMPORTANT: Add your EmailJS keys here
 const EMAILJS_PUBLIC_KEY = '9K1HD5IEzGJW8WxRx'; // This is your Public Key
 const EMAILJS_SERVICE_ID = 'service_5ehurrn';
 const EMAILJS_CONTACT_TEMPLATE_ID = 'template_phugmw9';
 const EMAILJS_RECRUITER_TEMPLATE_ID = 'template_phugmw9'; // Please create a separate template for this and update the ID
+const GEMINI_API_KEY = 'AIzaSyBfxJphPnrXey9kCbcFKGK_NTavjib7krM';
 
 // --- Icon Components ---
 
@@ -41,6 +37,24 @@ const Icon = ({ name, className }) => {
 // --- Main App Component ---
 
 export default function App() {
+    const [emailJsLoaded, setEmailJsLoaded] = useState(false);
+
+    useEffect(() => {
+        const script = document.createElement('script');
+        script.type = 'text/javascript';
+        script.src = "https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js";
+        script.async = true;
+        script.onload = () => {
+            window.emailjs.init(EMAILJS_PUBLIC_KEY);
+            setEmailJsLoaded(true);
+        };
+        document.body.appendChild(script);
+
+        return () => {
+            document.body.removeChild(script);
+        }
+    }, []);
+
     return (
         <div className="bg-slate-900 text-slate-300">
             <StyleInjector />
@@ -54,11 +68,11 @@ export default function App() {
                 <Projects />
                 <GitHubActivity />
                 <Certifications />
-                <Contact />
+                <Contact emailJsLoaded={emailJsLoaded} />
             </main>
             <Footer />
             <Chatbot />
-            <RecruiterModal />
+            <RecruiterModal emailJsLoaded={emailJsLoaded} />
         </div>
     );
 }
@@ -513,7 +527,7 @@ function Contact({ emailJsLoaded }) {
     const sendEmail = (e) => {
         e.preventDefault();
         
-        if (!emailJsLoaded || typeof window.emailjs === 'undefined') {
+        if (!emailJsLoaded || !window.emailjs) {
             setStatus({ text: 'Email service is not ready. Please wait a moment.', type: 'error' });
             return;
         }
@@ -587,7 +601,7 @@ function Chatbot() {
         if (chatMessagesRef.current) chatMessagesRef.current.scrollTop = chatMessagesRef.current.scrollHeight;
     }, [messages, isTyping]);
     
-    const getAIResponse = async (userMessage) => {
+       const getAIResponse = async (userMessage) => {
         if (GEMINI_API_KEY === 'YOUR_GEMINI_API_KEY_GOES_HERE') {
             return "Error: The Gemini API Key has not been set up by the developer.";
         }
@@ -679,7 +693,7 @@ function RecruiterModal({ emailJsLoaded }) {
     const handleSubmit = (e) => {
         e.preventDefault(); 
         
-        if (!emailJsLoaded || typeof window.emailjs === 'undefined') {
+        if (!emailJsLoaded || !window.emailjs) {
             setStatus({ text: 'Email service is not ready. Please try again later.', type: 'error' });
             return;
         }
