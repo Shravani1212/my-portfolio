@@ -432,29 +432,70 @@ function Experience() {
 
 function Projects() {
     const projectData = [
-        { title: 'APSEC Election Management System', description: 'A comprehensive system for managing state election processes. I developed backend logic for reservations, result processing, and dynamic forms.', tags: ['Java', 'Spring Boot', 'JSP'], img: 'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?q=80&w=2070&auto=format&fit=crop' },
-        { title: 'Country Search Dashboard', description: 'An interactive dashboard application that allows users to search for countries and view key statistics and information via API integrations.', tags: ['React', 'API', 'JavaScript'], img: 'https://images.unsplash.com/photo-1563089145-599997674c42?q=80&w=2070&auto=format&fit=crop' },
-        { title: 'Budget Analyzer Application', description: 'A tool for analyzing and visualizing budget data, helping users track expenses and manage finances with interactive charts and reports.', tags: ['Java', 'React', 'Chart.js'], img: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop' },
-        { title: 'AI-Powered Mini Chatbot', description: 'Developed multiple chatbots, including the one on this site, using LLM APIs to provide intelligent, context-aware responses.', tags: ['JavaScript', 'Gemini API'], img: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=1974&auto=format&fit=crop' }
+        { 
+            title: 'APSEC Election Management System', 
+            description: 'A comprehensive system for managing state election processes. I developed backend logic for reservations, result processing, and dynamic forms.', 
+            tags: ['Java', 'Spring Boot', 'JSP', 'JavaScript','PostgreSQL','MSSQL'], 
+            img: 'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?q=80&w=2070&auto=format&fit=crop' 
+        },
+        { 
+            title: 'TGSEC', 
+            description: 'A comprehensive system for managing state election processes. I developed backend logic for reservations, result processing, and dynamic forms for Telangana.', 
+            tags: ['Java', 'Struts', 'JavaScript','JSP','PostgreSQL','MSSQL'], 
+            img: 'https://images.unsplash.com/photo-1591696205602-2f950c417cb9?q=80&w=2070&auto=format&fit=crop' 
+        },
+        { 
+            title: 'Budget Analyzer Application', 
+            description: 'A tool for analyzing and visualizing budget data, helping users track expenses and manage finances with interactive charts and reports.', 
+            tags: ['Java', 'React', 'Chart.js'], 
+            img: 'https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop' 
+        },
+        { 
+            title: 'AI-Powered Mini Chatbot', 
+            description: 'Developed multiple chatbots, including the one on this site, using LLM APIs to provide intelligent, context-aware responses.', 
+            tags: ['JavaScript', 'Gemini API'], 
+            img: 'https://images.unsplash.com/photo-1526628953301-3e589a6a8b74?q=80&w=1974&auto=format&fit=crop' 
+        }
     ];
 
     return (
         <Section id="projects">
-            <motion.h2 variants={FADE_IN_VARIANTS} className="text-3xl font-bold text-slate-200 mb-12 flex items-center">
-                Things I've Built
+            <motion.h2 
+                variants={FADE_IN_VARIANTS} 
+                className="text-3xl font-bold text-slate-200 mb-12 flex items-center"
+            >
+                Projects 
                 <span className="h-px bg-slate-700 flex-grow ml-6"></span>
             </motion.h2>
-            <motion.div variants={STAGGER_CONTAINER_VARIANTS} className="grid md:grid-cols-2 gap-8">
+            <motion.div 
+                variants={STAGGER_CONTAINER_VARIANTS} 
+                className="grid md:grid-cols-2 gap-8"
+            >
                 {projectData.map((proj) => (
-                    <motion.div key={proj.title} className="group bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-lg border border-slate-800 card-hover transition-all duration-300" variants={FADE_IN_VARIANTS}>
-                         <div className="overflow-hidden h-56">
-                            <img src={proj.img} alt={proj.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"/>
+                    <motion.div 
+                        key={proj.title} 
+                        className="group bg-[var(--card-bg)] rounded-xl overflow-hidden shadow-lg border border-slate-800 card-hover transition-all duration-300" 
+                        variants={FADE_IN_VARIANTS}
+                    >
+                        <div className="overflow-hidden h-56">
+                            <img 
+                                src={proj.img} 
+                                alt={proj.title} 
+                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                            />
                         </div>
                         <div className="p-6">
                             <h3 className="text-xl font-bold text-slate-200 mb-2">{proj.title}</h3>
                             <p className="text-[var(--text-secondary)] mb-4 text-sm leading-relaxed">{proj.description}</p>
                             <div className="flex flex-wrap pt-2">
-                                {proj.tags.map(tag => <span key={tag} className="bg-cyan-900/50 text-[var(--accent-color)] text-xs font-semibold mr-2 mb-2 px-3 py-1 rounded-full">{tag}</span>)}
+                                {proj.tags.map(tag => (
+                                    <span 
+                                        key={tag} 
+                                        className="bg-cyan-900/50 text-[var(--accent-color)] text-xs font-semibold mr-2 mb-2 px-3 py-1 rounded-full"
+                                    >
+                                        {tag}
+                                    </span>
+                                ))}
                             </div>
                         </div>
                     </motion.div>
@@ -463,6 +504,7 @@ function Projects() {
         </Section>
     );
 }
+
 
 function GitHubActivity() {
     const GITHUB_USERNAME = 'Shravani1212';
