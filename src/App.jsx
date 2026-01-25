@@ -266,7 +266,8 @@ function AI_Insights() {
 
         const systemPrompt = `You are an AI assistant for a portfolio website. Your task is to generate a concise summary based on the provided resume context and a user prompt. Be professional and focus only on the information given. Here is the resume context: ${RESUME_CONTEXT}`;
         
-               const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;        const payload = { 
+               const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`; 
+               const payload = { 
             contents: [{ parts: [{ text: userPrompt }] }], 
             systemInstruction: { parts: [{ text: systemPrompt }] },
             generationConfig: {
@@ -652,7 +653,8 @@ function Chatbot() {
         const systemPrompt = `You are "Ask Shravani AI", a friendly and professional chatbot for Kasthuri Shravani's portfolio website. Your purpose is to answer questions from potential recruiters based ONLY on the provided resume context. Be concise and direct. If a question is outside the scope of the resume, politely decline and state that you can only answer questions about Shravani's professional background. Do not invent information. If the answer isn't in the context, say "That information is not specified in the resume, but you can reach out to Shravani directly for more details." Answer as if you are an assistant representing her. Use "Shravani has..." or "Her experience includes..." Here is the resume context: ${RESUME_CONTEXT}`;
         
        // Replace your current apiUrl line with this:
-const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;  const payload = { contents: [{ parts: [{ text: userMessage }] }], systemInstruction: { parts: [{ text: systemPrompt }] }, };
+const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;
+  const payload = { contents: [{ parts: [{ text: userMessage }] }], systemInstruction: { parts: [{ text: systemPrompt }] }, };
         try {
             const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
             if (!response.ok) {
