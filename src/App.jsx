@@ -202,6 +202,7 @@ function Hero() {
                     <motion.a href="#projects" className="bg-[var(--accent-color)] text-slate-900 font-bold py-3 px-8 rounded-lg hover:bg-[var(--accent-dark)] hover:text-white transition duration-300 shadow-lg shadow-cyan-500/10 hover:shadow-xl hover:shadow-cyan-500/20" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>View My Work</motion.a>
                     <motion.a href="#contact" className="border-2 border-[var(--accent-color)] text-[var(--accent-color)] font-bold py-3 px-8 rounded-lg hover:bg-[var(--accent-color)] hover:text-slate-900 transition duration-300" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>Contact Me</motion.a>
                 </motion.div>
+                
                 <motion.div className="mt-12 flex space-x-6" variants={FADE_IN_VARIANTS}>
                     <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[var(--accent-color)] transition-colors duration-300">
                         <Icon name="github" className="w-7 h-7" />
