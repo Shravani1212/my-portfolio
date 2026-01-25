@@ -8,7 +8,7 @@ const EMAILJS_PUBLIC_KEY = '9K1HD5IEzGJW8WxRx'; // This is your Public Key
 const EMAILJS_SERVICE_ID = 'service_5ehurrn';
 const EMAILJS_CONTACT_TEMPLATE_ID = 'template_phugmw9';
 const EMAILJS_RECRUITER_TEMPLATE_ID = 'template_phugmw9'; // Please create a separate template for this and update the ID
-const GEMINI_API_KEY = 'AIzaSyBfxJphPnrXey9kCbcFKGK_NTavjib7krM';
+const GEMINI_API_KEY = 'AIzaSyD1z-3PNBkG6pNkHYj1aT_vJhgeE-BVHC4';
 
 // --- Icon Components ---
 
@@ -196,7 +196,7 @@ function Hero() {
                 </motion.h1>
                 <motion.h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-slate-500 mt-2" variants={FADE_IN_VARIANTS}>I build things for the web.</motion.h2>
                 <motion.p className="text-[var(--text-secondary)] mt-6 max-w-xl leading-relaxed" variants={FADE_IN_VARIANTS}>
-                    I'm a Java Full Stack Developer specializing in building scalable, high-performance web applications. With 2 years of experience, I am passionate about solving complex technical challenges and leveraging modern technologies to create innovative solutions.
+                    I'm a Java Full Stack Developer specializing in building scalable, high-performance web applications. With 3 years of experience, I am passionate about solving complex technical challenges and leveraging modern technologies to create innovative solutions.
                 </motion.p>
                 <motion.div className="mt-10 flex flex-wrap gap-4" variants={FADE_IN_VARIANTS}>
                     <motion.a href="#projects" className="bg-[var(--accent-color)] text-slate-900 font-bold py-3 px-8 rounded-lg hover:bg-[var(--accent-dark)] hover:text-white transition duration-300 shadow-lg shadow-cyan-500/10 hover:shadow-xl hover:shadow-cyan-500/20" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>View My Work</motion.a>
@@ -265,8 +265,7 @@ function AI_Insights() {
 
         const systemPrompt = `You are an AI assistant for a portfolio website. Your task is to generate a concise summary based on the provided resume context and a user prompt. Be professional and focus only on the information given. Here is the resume context: ${RESUME_CONTEXT}`;
         
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${GEMINI_API_KEY}`;
-        const payload = { 
+               const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;        const payload = { 
             contents: [{ parts: [{ text: userPrompt }] }], 
             systemInstruction: { parts: [{ text: systemPrompt }] },
             generationConfig: {
@@ -534,7 +533,9 @@ function Certifications() {
         { title: "Programming in Java", issuer: "NPTEL", detail: "Elite + Gold (Top 5%)", icon: "code" },
         { title: "WordPress Development", issuer: "Bootstrap", detail: "Theme Specialization", icon: "html" },
         { title: "Python Programming", issuer: "Coursera", detail: "Data Structures", icon: "code-xml" },
-        { title: "Cybersecurity Fundamentals", issuer: "IBM SkillsNetwork", detail: "Core Concepts", icon: "database" }
+        { title: "Cybersecurity Fundamentals", issuer: "NxtWave", detail: "Core Concepts", icon: "database" },
+        { title: "Langchain4J", issuer: "CodeSignal", detail: "Core Concepts", icon: "database" }
+    
     ];
 
     return (
@@ -649,8 +650,8 @@ function Chatbot() {
         }
         const systemPrompt = `You are "Ask Shravani AI", a friendly and professional chatbot for Kasthuri Shravani's portfolio website. Your purpose is to answer questions from potential recruiters based ONLY on the provided resume context. Be concise and direct. If a question is outside the scope of the resume, politely decline and state that you can only answer questions about Shravani's professional background. Do not invent information. If the answer isn't in the context, say "That information is not specified in the resume, but you can reach out to Shravani directly for more details." Answer as if you are an assistant representing her. Use "Shravani has..." or "Her experience includes..." Here is the resume context: ${RESUME_CONTEXT}`;
         
-        const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${GEMINI_API_KEY}`;
-        const payload = { contents: [{ parts: [{ text: userMessage }] }], systemInstruction: { parts: [{ text: systemPrompt }] }, };
+       // Replace your current apiUrl line with this:
+const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash:generateContent?key=${GEMINI_API_KEY}`;  const payload = { contents: [{ parts: [{ text: userMessage }] }], systemInstruction: { parts: [{ text: systemPrompt }] }, };
         try {
             const response = await fetch(apiUrl, { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(payload) });
             if (!response.ok) {
