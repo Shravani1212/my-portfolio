@@ -62,7 +62,7 @@ export default function App() {
             <main className="container mx-auto px-6 sm:px-10 md:px-20">
                 <Hero />
                 <About />
-                <AI_Insights />
+                <AiInsights />
                 <TechnicalShowcase />
                 <Experience />
                 <Projects />
@@ -140,7 +140,7 @@ function Header() {
     return (
         <motion.header id="header" className={navClass} initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.5 }}>
             <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-                <a href="#" className="text-2xl font-bold text-[var(--accent-color)]">KS</a>
+                <p className="text-2xl font-bold text-[var(--accent-color)]">KS</p>
                 <div className="hidden md:flex space-x-8 items-center text-[var(--text-secondary)] font-medium">
                     <a href="#about" className="hover:text-[var(--accent-color)] transition duration-300">About</a>
                     <a href="#projects" className="hover:text-[var(--accent-color)] transition duration-300">Projects</a>
@@ -241,7 +241,7 @@ function About() {
 
 const RESUME_CONTEXT = `KASTHURI SHRAVANI - JAVA FULL STACK DEVELOPER CONTACT: Phone: (+91) 9182456681, Email: kasthurishravani1212@gmail.com, Location: Hyderabad, INDIA, LinkedIn: https://www.linkedin.com/in/shravani-kasthuri/, GitHub: https://github.com/Shravani1212 PROFILE SUMMARY: A dedicated Java Full Stack Developer with over 2 years of experience in building scalable web applications using Spring Boot, React.js, JSP, and PostgreSQL. At the Center for Good Governance, worked on dynamic projects like the APSEC election management system, implementing reservation handling, result processing, and multilingual form generation. Key achievements include optimizing backend services using GitHub Copilot (reducing development time by 20%) and leveraging ChatGPT for debugging and refactoring legacy code. Passionate about solving technical challenges, improving application performance, and collaborating with cross-functional teams. Career goal is to deepen expertise in microservices architecture and cloud technologies to build innovative, high-performance solutions. WORK EXPERIENCE: - Java Full Stack Developer at Centre for Good Governance (CGG) (March 2023 - Present) - Skilled and detail-oriented Java Fullstack Developer with hands-on experience in designing, developing, and maintaining enterprise-level web applications using Java (Spring Boot, Hibernate) on the backend and JSP, JSTL, HTML, CSS, JavaScript, and jQuery on the frontend. - Proficient in building scalable REST APIs, integrating databases (MySQL/PostgreSQL), and ensuring responsive UI/UX designs. - Strong knowledge of MVC architecture, backend logic, and frontend templating. - Experienced in version control (Git), build tools (Maven/Gradle), and deployment on Apache Tomcat or cloud platforms. - Adept at working in Agile/Scrum environments. EDUCATION: - B.Tech/B.E. - Electronics/Telecommunication from Rajiv Gandhi University of Knowledge Technologies (RGUKT- Basar), 2023. Grade: 8.3/10. 12th Grade: 90-94.9% (2019). 10th Grade: 95-99.9% (2017). KEY SKILLS: - Frontend: HTML, CSS, JavaScript, React.Js, Bootstrap, JSP - Backend: Java, Spring Boot, Spring MVC, Spring Data JPA, Python - Databases: SQL, PostgreSQL, MySQL, SQLite - Tools: Git, Maven/Gradle, Apache Tomcat, Figma. CERTIFICATIONS: - Programming In Java By NPTEL (Elite + Gold, Top 5%) - WordPress Theme Development With Bootstrap - Python Programming (Coursera) - Cybersecurity Fundamentals (IBM) - Microsoft Excel`;
 
-function AI_Insights() {
+function AiInsights() {
     const [isLoading, setIsLoading] = useState(false);
     const [insight, setInsight] = useState('');
     const [activeTopic, setActiveTopic] = useState('');
