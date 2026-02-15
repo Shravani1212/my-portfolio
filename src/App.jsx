@@ -8,7 +8,7 @@ const EMAILJS_PUBLIC_KEY = '9K1HD5IEzGJW8WxRx'; // This is your Public Key
 const EMAILJS_SERVICE_ID = 'service_5ehurrn';
 const EMAILJS_CONTACT_TEMPLATE_ID = 'template_phugmw9';
 const EMAILJS_RECRUITER_TEMPLATE_ID = 'template_phugmw9'; // Please create a separate template for this and update the ID
-const GEMINI_API_KEY = 'AIzaSyD1z-3PNBkG6pNkHYj1aT_vJhgeE-BVHC4';
+const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY || process.env.GEMINI_API_KEY || 'AIzaSyDHAg5Ujlu1DUCxM9d6j5LowxUURnuZ9sE';
 
 // --- Icon Components ---
 
