@@ -8,7 +8,7 @@ const EMAILJS_PUBLIC_KEY = '9K1HD5IEzGJW8WxRx'; // This is your Public Key
 const EMAILJS_SERVICE_ID = 'service_5ehurrn';
 const EMAILJS_CONTACT_TEMPLATE_ID = 'template_phugmw9';
 const EMAILJS_RECRUITER_TEMPLATE_ID = 'template_phugmw9'; // Please create a separate template for this and update the ID
-const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY || process.env.GEMINI_API_KEY || 'AIzaSyDHAg5Ujlu1DUCxM9d6j5LowxUURnuZ9sE';
+const GEMINI_API_KEY = process.env.REACT_APP_GEMINI_API_KEY || process.env.GEMINI_API_KEY || 'YOUR_GEMINI_API_KEY_GOES_HERE';
 
 // --- Icon Components ---
 
@@ -59,7 +59,7 @@ export default function App() {
         <div className="bg-slate-900 text-slate-300">
             <StyleInjector />
             <Header />
-            <main className="container mx-auto px-6 sm:px-10 md:px-20">
+            <main className="container mx-auto px-6 sm:px-10 md:px-20 ">
                 <Hero />
                 <About />
                 <AiInsights />
@@ -140,7 +140,9 @@ function Header() {
     return (
         <motion.header id="header" className={navClass} initial={{ y: -100 }} animate={{ y: 0 }} transition={{ duration: 0.5 }}>
             <nav className="container mx-auto px-6 py-4 flex justify-between items-center">
-                <p className="text-2xl font-bold text-[var(--accent-color)]">KS</p>
+                <a href="#hero" className="block w-10 h-10 overflow-hidden rounded-full">
+                    <img src="/ks-avatar.jpg" alt="Shravani" className="w-full h-full object-cover" />
+                </a>
                 <div className="hidden md:flex space-x-8 items-center text-[var(--text-secondary)] font-medium">
                     <a href="#about" className="hover:text-[var(--accent-color)] transition duration-300">About</a>
                     <a href="#projects" className="hover:text-[var(--accent-color)] transition duration-300">Projects</a>
@@ -188,31 +190,35 @@ function Hero() {
     };
 
     return (
-        <Section id="hero">
-             <div className="min-h-screen flex flex-col justify-center">
-                <motion.p className="text-[var(--accent-color)] font-mono mb-4 text-lg" variants={FADE_IN_VARIANTS}>Hi, my name is</motion.p>
-                <motion.h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-[var(--text-primary)]" variants={titleVariants}>
-                    {"Kasthuri Shravani.".split("").map((char, index) => <motion.span key={index} variants={letterVariants} className="inline-block">{char}</motion.span>)}
-                </motion.h1>
-                <motion.h2 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-slate-500 mt-2" variants={FADE_IN_VARIANTS}>I build things for the web.</motion.h2>
-                <motion.p className="text-[var(--text-secondary)] mt-6 max-w-xl leading-relaxed" variants={FADE_IN_VARIANTS}>
-                    I'm a Java Full Stack Developer specializing in building scalable, high-performance web applications. With 3 years of experience, I am passionate about solving complex technical challenges and leveraging modern technologies to create innovative solutions.
-                </motion.p>
-                <motion.div className="mt-10 flex flex-wrap gap-4" variants={FADE_IN_VARIANTS}>
-                    <motion.a href="#projects" className="bg-[var(--accent-color)] text-slate-900 font-bold py-3 px-8 rounded-lg hover:bg-[var(--accent-dark)] hover:text-white transition duration-300 shadow-lg shadow-cyan-500/10 hover:shadow-xl hover:shadow-cyan-500/20" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>View My Work</motion.a>
-                    <motion.a href="#contact" className="border-2 border-[var(--accent-color)] text-[var(--accent-color)] font-bold py-3 px-8 rounded-lg hover:bg-[var(--accent-color)] hover:text-slate-900 transition duration-300" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>Contact Me</motion.a>
-                </motion.div>
-                
-                <motion.div className="mt-12 flex space-x-6" variants={FADE_IN_VARIANTS}>
-                    <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[var(--accent-color)] transition-colors duration-300">
-                        <Icon name="github" className="w-7 h-7" />
-                    </a>
-                    <a href="https://www.linkedin.com/in/shravani-kasthuri/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[var(--accent-color)] transition-colors duration-300">
-                        <Icon name="linkedin" className="w-7 h-7" />
-                    </a>
-                </motion.div>
-            </div>
-        </Section>
+           <Section id="hero">
+                   <div className="min-h-screen flex flex-col md:flex-row items-center">
+                       <div className="w-full md:w-7/12 p-4 md:p-8">
+                            <motion.p className="text-[var(--accent-color)] font-mono mb-4 text-lg" variants={FADE_IN_VARIANTS}>Hi, my name is</motion.p>
+                            <motion.h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold text-[var(--text-primary)]" variants={titleVariants}>
+                                {"Kasthuri Shravani.".split("").map((char, index) => <motion.span key={index} variants={letterVariants} className="inline-block">{char}</motion.span>)}
+                            </motion.h1>
+                            <motion.h2 className="text-4xl sm:text-6xl md:text-5xl font-extrabold text-slate-500 mt-2" variants={FADE_IN_VARIANTS}>I build things for the web.</motion.h2>
+                            <motion.p className="text-[var(--text-secondary)] mt-6 max-w-xl leading-relaxed" variants={FADE_IN_VARIANTS}>
+                                I'm a Java Full Stack Developer specializing in building scalable, high-performance web applications. With 3 years of experience, I am passionate about solving complex technical challenges and leveraging modern technologies to create innovative solutions.
+                            </motion.p>
+                            <motion.div className="mt-10 flex flex-wrap gap-4" variants={FADE_IN_VARIANTS}>
+                                <motion.a href="#projects" className="bg-[var(--accent-color)] text-slate-900 font-bold py-3 px-8 rounded-lg hover:bg-[var(--accent-dark)] hover:text-white transition duration-300 shadow-lg shadow-cyan-500/10 hover:shadow-xl hover:shadow-cyan-500/20" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>View My Work</motion.a>
+                                <motion.a href="#contact" className="border-2 border-[var(--accent-color)] text-[var(--accent-color)] font-bold py-3 px-8 rounded-lg hover:bg-[var(--accent-color)] hover:text-slate-900 transition duration-300" whileHover={{ scale: 1.05, y: -2 }} whileTap={{ scale: 0.95 }}>Contact Me</motion.a>
+                            </motion.div>
+                            <motion.div className="mt-12 flex space-x-6" variants={FADE_IN_VARIANTS}>
+                                <a href={`https://github.com/${GITHUB_USERNAME}`} target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[var(--accent-color)] transition-colors duration-300">
+                                    <Icon name="github" className="w-7 h-7" />
+                                </a>
+                                <a href="https://www.linkedin.com/in/shravani-kasthuri/" target="_blank" rel="noopener noreferrer" className="text-slate-400 hover:text-[var(--accent-color)] transition-colors duration-300">
+                                    <Icon name="linkedin" className="w-7 h-7" />
+                                </a>
+                            </motion.div>
+                       </div>
+                       <div className="w-full md:w-5/12 p-4 md:p-8 flex justify-center">
+                           <div className="w-full max-w-sm h-64 md:h-96 rounded-lg overflow-hidden shadow-xl" style={{ backgroundImage: "url('/ks-avatar.jpg')", backgroundSize: 'cover', backgroundPosition: 'center' }} aria-hidden="true" />
+                       </div>
+                   </div>
+           </Section>
     );
 }
 
