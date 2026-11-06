@@ -1,70 +1,76 @@
-# Getting Started with Create React App
+# Kasthuri Shravani — Developer Portfolio
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+> **Java Full Stack Developer • Distributed Microservices • AI-Assisted Engineering**  
+> Hyderabad, India • [LinkedIn](https://www.linkedin.com/in/shravani-kasthuri/) • [GitHub](https://github.com/Shravani1212)
 
-## Available Scripts
+---
 
-In the project directory, you can run:
+## 🚀 Overview
 
-### `npm start`
+A modern, high-performance portfolio website built with **React**, **Tailwind CSS**, **Framer Motion**, and **Chart.js**, highlighting 3+ years of experience in backend architecture, high-availability distributed systems, database query optimization, and AI developer tooling.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### 🌟 Key Highlights & Sections
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Hero & Impact Stats Banner**: Real-world metrics including 10M+ users served, -30% API latency cut, 3-day microservice delivery, and -40% deployment overhead reduction.
+- **About Me**: Narrative of work at the Centre for Good Governance (CGG) and video introduction showcase.
+- **Technical Skills Matrix**: 4 structured engineering pillars:
+  - *Core Backend & Design* (Java, Spring Boot, Spring Cloud, Netflix Eureka, REST APIs, React.js, TypeScript)
+  - *Streaming & Caching* (Apache Kafka, Redis Distributed Caching)
+  - *Databases & SQL Tuning* (PostgreSQL, MS SQL, CTEs, Window Functions, EXPLAIN ANALYZE, Dual-DB Sync)
+  - *AI-Assisted Tech & DevOps* (AI Agents, Antigravity, OpenAI Codex, Copilot, Cursor, Claude, Docker, Jenkins)
+- **Interactive Telemetry Dashboard**: Live Chart.js benchmarks illustrating query optimization latency drops (-30% to -60%) and architecture focus distribution.
+- **Professional Experience**: High-impact achievements at Centre for Good Governance (CGG).
+- **Flagship Engineering Projects**:
+  - *APSEC* (Andhra Pradesh State Election Management System) — Dual-DB sync, window functions, and statewide voter mapping.
+  - *TSEC* (Telangana State Election Commission) — 7-day Struts monolith modernization to Spring Boot/React via AI agents.
+  - *CURE 1* (Common Utility Payment Platform) — 3-day zero-to-production microservice with Kafka, Redis, and AES-256-GCM encryption.
+- **Education & Certifications**: B.Tech in ECE from RGUKT (IIIT Basar), NPTEL Elite+Gold in Java, and AI certifications.
+- **Recruiter AI Assistant & Chatbot**: Interactive GenAI integration with Gemini 2.5 Flash trained on Shravani's verified profile.
+- **Direct Contact & Resume Download**: Built-in EmailJS contact pipeline and automated recruiter resume download modal.
 
-### `npm test`
+---
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 🛠️ Tech Stack
 
-### `npm run build`
+- **Frontend**: React 18, Tailwind CSS, Framer Motion
+- **Visualizations**: Chart.js
+- **Integrations**: EmailJS Browser SDK, Google Gemini API
+- **Fonts**: Inter, Poppins, Fira Code
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 💻 Getting Started
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### Prerequisites
 
-### `npm run eject`
+- Node.js (v16+)
+- npm or pnpm
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+### Installation
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+```bash
+# Clone the repository
+git clone https://github.com/Shravani1212/my-portfolio.git
+cd my-portfolio
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Install dependencies
+npm install
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+# Start local development server
+npm start
+```
 
-## Learn More
+### Production Build
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```bash
+npm run build
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+---
 
-### Code Splitting
+## 📬 Contact
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- **Email**: [kasthurishravani1212@gmail.com](mailto:kasthurishravani1212@gmail.com)
+- **Phone**: +91-9182456681
+- **LinkedIn**: [linkedin.com/in/shravani-kasthuri](https://www.linkedin.com/in/shravani-kasthuri/)
+- **Location**: Hyderabad, India
